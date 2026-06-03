@@ -1,14 +1,17 @@
 <?php
 require_once 'init.php';
 
-if (!isset($_SESSION['user_id']) || !isset($_GET['id'])) {
+if (!isset($_SESSION['user_id']) || !isset($_POST['id'])) {
     header("Location: dashboard.php");
     exit;
 }
 
+check_csrf();
+$id = $_POST['id'];
+
 // 1. Get the file path first to delete the file from the folder
 $stmt = $pdo->prepare("SELECT file_path FROM files WHERE id = ? AND user_id = ?");
-$stmt->execute([$_GET['id'], $_SESSION['user_id']]);
+$stmt->execute([$id, $_SESSION['user_id']]);
 $file = $stmt->fetch();
 
 if ($file) {
@@ -18,7 +21,7 @@ if ($file) {
     }
     // 3. Delete from database
     $stmt = $pdo->prepare("DELETE FROM files WHERE id = ? AND user_id = ?");
-    $stmt->execute([$_GET['id'], $_SESSION['user_id']]);
+    $stmt->execute([$id, $_SESSION['user_id']]);
 }
 
 header("Location: dashboard.php");
