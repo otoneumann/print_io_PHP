@@ -11,6 +11,7 @@ env.php
 
 # Logs
 logs/*.log
+config.php
 
 # Database backups (if you create them)
 *.sql
