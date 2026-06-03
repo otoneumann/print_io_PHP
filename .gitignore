@@ -8,10 +8,11 @@
 
 # PHP project secrets
 env.php
+config.php
+init.php
 
 # Logs
 logs/*.log
-config.php
 
-# Database backups (if you create them)
+# Database backups
 *.sql
