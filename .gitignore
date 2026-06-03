@@ -1,0 +1,16 @@
+# macOS system files
+.DS_Store
+
+# PhpStorm / IDE files
+.idea/
+.project
+.settings/
+
+# PHP project secrets
+env.php
+
+# Logs
+logs/*.log
+
+# Database backups (if you create them)
+*.sql
