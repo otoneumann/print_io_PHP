@@ -16,3 +16,6 @@ logs/*.log
 
 # Database backups
 *.sql
+
+# User uploads
+uploads/
